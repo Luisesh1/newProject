@@ -4,11 +4,37 @@
   <title>NewProject</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
 <body>
+ <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">+ New Project</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="<%=root_path%>">Inicio</a></li>
+        <li><a href="#">Explorar</a></li>
+        <li><a href="<%=new_user_registration_path%>">Registrar</a></li>
+        <li><a href="<%=new_user_session_path%>">Iniciar Seccion</a></li>
+        <li><a href="<%=evidencias_path%>">Evidencias</a></li>
+      </ul>
 
+      <ul id="nav-mobile" class="side-nav">
+       	<li><a href="<%=root_path%>">Inicio</a></li>
+        <li><a href="#">Explorar</a></li>
+        <li><a href="<%=new_user_registration_path%>">Registrar</a></li>
+        <li><a href="<%=new_user_session_path%>">Iniciar Seccion</a></li>
+        <li><a href="<%=evidencias_path%>">Evidencias</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+   <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
 <%= yield %>
 
+<script type="text/javascript">
+
+  
+</script>
 </body>
 </html>
