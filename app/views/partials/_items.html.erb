@@ -1,0 +1,9 @@
+<li><a href="<%=root_path%>">Inicio</a></li>
+<li><a href="#">Explorar</a></li>
+<%if current_user.nil?%>
+  <li><a href="<%=new_user_registration_path%>">Registrar</a></li>
+  <li><a href="<%=new_user_session_path%>">Iniciar Seccion</a></li>
+  <%elsif%>
+  <li><%= link_to "Cerrar Sesión",destroy_user_session_path, method: :delete%></li>
+<%end%>
+<li><a href="<%=evidencias_path%>">Evidencias</a></li>
