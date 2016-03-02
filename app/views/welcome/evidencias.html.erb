@@ -1,140 +1,51 @@
+<%
+  img = Dir.glob("app/assets/images/*").sort{|x,y| x.split("im").last.split(".")[0].to_i<=>y.split("im").last.split(".")[0].to_i}
+  desc=["Se ingresa a la pagina de digital ocean utilizando un correo y contraseña previamente registrados",
+        "Se seleciona crear droplet como accion siguente se despliega la siguiente pantalla",
+        "Se da click en one click aplication y se seleciona ruby on rails con base de datos postgresql",
+        "como acto siguiente se seleciona la opcion de pago '5 dollar per mouth' y un servidor en estados unidos",
+        "se le asigna un nombre a el droplet (el cual no puede contener espacios)",
+        "Como se puede obserbar en la imagen el droplet ya esta creado y nos proporciona una ip para acceder",
+        "ingresamos a el correo de nuestra cuenta de digital ocean para obtener el username y password del droplet",
+        "Una vez que ya tenemos el usuario y contraseña entramos al programa putty con nuestra ip y el puerto 22",
+        "Despues de el putty se conecte a la IP se deben proporcionar el usuario y la contraseña",
+        "Cuando se conecte al servidor este pedira un cambio de contraseña y despues deplegara informacion de rails",
+        "El siguiente paso es acceder la carpeta de rails con el comando '~rails'",
+        "Se crea un espacio en github el cual servira de apoyo para mandar el proyecto a digital ocean",
+        "Se procede a crear la base de datos utilizando los generadores de rails la cual se sube a github",
+        "Se clona el proyecto usando el comando git clone 'direccion' y esto subira los archivos a digital ocean",
+        "Se entra al directorio con el comando cd nombreDirectorio ",
+        "Se ajecuta el precompilado de los assets y la migracion de la base de datos"]
+%>
+
+
   <div class="container">
     <div class="row">
-      <div class="col s12 m6 l6">
-       <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <%=image_tag "im1.png"%>
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Paso 1<i class="material-icons right">more_vert</i></span>
-            <p>Crear el Droplet.</p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Paso 1<i class="material-icons right">close</i></span>
-            <p>Crear el Droplet.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m6 l6">
-       <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <%=image_tag "im2.png"%>
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Paso 2<i class="material-icons right">more_vert</i></span>
-            <p>Recoger la IP que generó y copiarla para posteriormente configurar Putty.</p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Paso <i class="material-icons right">close</i></span>
-            <p>Recoger la IP que generó y copiarla para posteriormente configurar Putty.</p>
+      <h2 class="card-panel light-blue lighten-2" align="center">Proceso para subir una pagina con base de datos a digital ocean</h2>
+      <%img.each_with_index do |item,index|%>
+        <%next unless item.split("/").last=~ /im\d/%>
+        <%aux=item.split("/").last%>
+        <div class="col s12 m6 l6">
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <%=link_to image_tag(aux),image_path(aux)%>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Paso <%=index%><i class="material-icons right">more_vert</i></span>
+              <p><%=desc[index-1]%></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Paso <%=index%><i class="material-icons right">close</i></span>
+              <p><%=desc[index-1]%></p>
+            </div>
           </div>
         </div>
-      </div>
-
-     <div class="col s12 m6 l6">
-       <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <%=image_tag "im3.png"%>
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Paso 3<i class="material-icons right">more_vert</i></span>
-            <p>Abrimos Putty y comenzamos a configurarlo con la IP que se generó al crear nuestro Droplet.Llenamos los Campos IP address con la IP generada en digital ocean, Connection type con la opción SSH y marcamos nuestro puerto como el 22 </p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Paso <i class="material-icons right">close</i></span>
-            <p>Abrimos Putty y comenzamos a configurarlo con la IP que se generó al crear nuestro Droplet.Llenamos los Campos IP address con la IP generada en digital ocean, Connection type con la opción SSH y marcamos nuestro puerto como el 22 </p>
-          </div>
-        </div>
-      </div>
-
-
-     <div class="col ">
-       <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <%=image_tag "im4.png"%>
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Paso 4<i class="material-icons right">more_vert</i></span>
-            <p> </p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Paso <i class="material-icons right">close</i></span>
-            <p>.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m6 l6">
-       <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <%=image_tag "im4.png"%>
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Paso 4<i class="material-icons right">more_vert</i></span>
-            <p> </p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Paso <i class="material-icons right">close</i></span>
-            <p>.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col s12 m6 l6">
-       <div class="card">
-          <div class="card-image waves-effect waves-block waves-light">
-            <%=image_tag "im4.png"%>
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Paso 4<i class="material-icons right">more_vert</i></span>
-            <p> </p>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Paso <i class="material-icons right">close</i></span>
-            <p>.</p>
-          </div>
-        </div>
-      </div>
+      <%end%>
 
     </div>
   </div>
 
-  <div class="parallax-container">
-      <div class="parallax"><%=image_tag("im2.png")%></div>
-    </div>
-    <br>
-    <br>
-    <div class="parallax-container">
-      <div class="parallax"><%=image_tag("im2.png")%></div>
-    </div>
-    <br>
-    <br>
-    <div class="parallax-container">
-      <div class="parallax"><%=image_tag("im2.png")%></div>
-    </div>
-    <br>
-    <br>
-    <div class="parallax-container">
-      <div class="parallax"><%=image_tag("im2.png")%></div>
-    </div>
-    <br>
-    <br>
-    <div class="parallax-container">
-      <div class="parallax"><%=image_tag("im2.png")%></div>
-    </div>
-    <br>
-    <br>
-    <div class="parallax-container">
-      <div class="parallax"><%=image_tag("im2.png")%></div>
-    </div>
-    <br>
-    <br>
-    <div class="parallax-container">
-      <div class="parallax"><%=image_tag("im2.png")%></div>
-    </div>
-    <br>
-    <br>
+  
   <footer class="page-footer orange">
     <div class="container">
       <div class="row">
