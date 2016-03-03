@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302013408) do
+ActiveRecord::Schema.define(version: 20160303071442) do
 
   create_table "activities", force: :cascade do |t|
     t.text     "description"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20160302013408) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "group_id"
+    t.integer  "type"
   end
 
   add_index "user_groups", ["group_id"], name: "index_user_groups_on_group_id"
