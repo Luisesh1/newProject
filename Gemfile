@@ -33,8 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :deployment do
-	gem 'pg'
-	
+	gem 'pg'	
 end
 gem 'materialize-sass'
 group :development, :test do

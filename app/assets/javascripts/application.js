@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= stub 'initm'
 //= require materialize/extras/nouislider
 //= require materialize-sprockets
 
