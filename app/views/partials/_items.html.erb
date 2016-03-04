@@ -2,7 +2,7 @@
 <li><%=link_to "Explorar",projects_path%></li>
 <%if current_user.nil?%>
   <li><%=link_to "Registrar",new_user_registration_path%></li>
-  <li><%link_to "Iniciar Sesión",new_user_session_path %></li>
+  <li><%=link_to "Iniciar Sesión",new_user_session_path %></li>
   <%elsif%>
   <li><%= link_to "Cerrar Sesión",destroy_user_session_path, method: :delete%></li>
 <%end%>
